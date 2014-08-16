@@ -7,6 +7,7 @@ Building an OpenGL game engine in Java, for fun!
 Originally inspired by tutorials by some YouTubers:
 * [TheChernoProject](https://www.youtube.com/user/TheChernoProject)
 * [TheBennyBox](https://www.youtube.com/user/thebennybox)
+* [Song Ho Ahn](http://www.songho.ca/opengl/)
 
 ## License
 
