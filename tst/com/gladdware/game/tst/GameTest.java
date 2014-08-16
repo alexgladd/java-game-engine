@@ -24,6 +24,8 @@ import com.gladdware.game.core.EngineCore;
 import com.gladdware.game.core.Game;
 import com.gladdware.game.log.Log;
 import com.gladdware.game.log.LogLevel;
+import com.gladdware.game.math.Matrix4f;
+import com.gladdware.game.math.Vector3f;
 import com.gladdware.game.util.FpsManager;
 import com.gladdware.game.util.Time;
 
@@ -104,6 +106,10 @@ public class GameTest extends Game {
         }
         
         Log.i(tag, "Done");
+        
+//        Matrix4f m = Matrix4f.translate(new Vector3f(1.0f, 0.0f, 0.0f));
+//        Matrix4f r = Matrix4f.rotateDegrees(0.0f, 0.0f, 90.0f);
+//        Log.d(TAG, m.mul(r).toString());
     }
 
 }
