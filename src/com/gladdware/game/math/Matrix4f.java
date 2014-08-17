@@ -21,8 +21,6 @@ package com.gladdware.game.math;
 
 import java.nio.FloatBuffer;
 
-import com.gladdware.game.log.Log;
-
 /**
  * 4x4 matrix, with floating point elements
  * 
@@ -33,6 +31,13 @@ public class Matrix4f {
     
     private static final int DIM = 4;
     private static final int MATRIX_4X4_SIZE = DIM * DIM;
+    
+    private static final float[] ZERO_MATRIX = {
+        0.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 0.0f
+    };
     
     private static final String ELEMENT_FMT = "%1$8.6f";
     
@@ -207,6 +212,12 @@ public class Matrix4f {
         
         return result;
     }
+    
+    public Matrix4f(float[] src) {
+        this.matrix = new float[MATRIX_4X4_SIZE];
+        
+        System.arraycopy(src, 0, this.matrix, 0, MATRIX_4X4_SIZE);
+    }
 
     /**
      * Default constructor
@@ -214,11 +225,7 @@ public class Matrix4f {
      * Initialize all elements to 0.0
      */
     public Matrix4f() {
-        this.matrix = new float[MATRIX_4X4_SIZE];
-        
-        for(int i = 0; i < MATRIX_4X4_SIZE; i++) {
-            this.matrix[i] = 0.0f;
-        }
+        this(ZERO_MATRIX);
     }
     
     /**
