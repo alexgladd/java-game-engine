@@ -58,4 +58,47 @@ public class Vector3f {
         this(other.x, other.y, other.z);
     }
 
+    /**
+     * Get the magnitude of this vector
+     *
+     * @return the vector magnitude
+     */
+    public float mag() {
+        return (float)Math.sqrt((x * x) + (y * y) + (z * z));
+    }
+    
+    /**
+     * Get a normalized version of this vector
+     *
+     * @return a new normalized vector
+     */
+    public Vector3f normalize() {
+        float mag = mag();
+        
+        return new Vector3f(this.x / mag, this.y / mag, this.z / mag);
+    }
+    
+    /**
+     * Calculate the dot product of this vector with the given other
+     *
+     * @param other the vector to calculate the dot product with
+     * @return the dot product
+     */
+    public float dot(Vector3f other) {
+        return (this.x * other.x) + (this.y * other.y) + (this.z * other.z); 
+    }
+    
+    /**
+     * Calculate the cross product of this vector with the given other
+     *
+     * @param other the vector to calculate the cross product with
+     * @return a new vector with the cross product result
+     */
+    public Vector3f cross(Vector3f other) {
+        float cX = (this.y * other.z) - (this.z * other.y);
+        float cY = (this.z * other.x) - (this.x * other.z);
+        float cZ = (this.x * other.y) - (this.y * other.x);
+        
+        return new Vector3f(cX, cY, cZ);
+    }
 }
