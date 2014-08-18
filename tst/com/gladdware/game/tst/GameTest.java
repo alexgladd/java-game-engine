@@ -19,6 +19,8 @@
 
 package com.gladdware.game.tst;
 
+import org.lwjgl.opengl.GL11;
+
 import com.gladdware.game.core.EngineException;
 import com.gladdware.game.core.EngineCore;
 import com.gladdware.game.core.Game;
@@ -53,6 +55,10 @@ public class GameTest extends Game {
     @Override
     protected boolean onInit() {
         Log.d(TAG, "onInit");
+        
+        // set clear color to black
+        GL11.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        
         return true;
     }
 
@@ -78,7 +84,8 @@ public class GameTest extends Game {
      */
     @Override
     protected void onRender() {
-        // TODO Auto-generated method stub
+        // clear
+    	GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
         
         // show fps once per second
         long nowNs = Time.getTimeNs();
