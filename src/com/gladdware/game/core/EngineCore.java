@@ -79,14 +79,13 @@ public class EngineCore {
             game.onRender();
             Window.render();
             
-            // TODO update fps counter
+            // update the fps manager
+            FpsManager.finishedFrame();
             
-            // XXX temp
+            // XXX temp - should probably let game impls decide this
             if(Window.isCloseRequested()) {
                 game.requestShutdown();
             }
-            
-            FpsManager.finishedFrame();
             
             // sync to the target framerate
             Display.sync(engineCtx.targetFramerate);
