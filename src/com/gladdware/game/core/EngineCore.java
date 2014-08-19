@@ -82,11 +82,6 @@ public class EngineCore {
             // update the fps manager
             FpsManager.finishedFrame();
             
-            // XXX temp - should probably let game impls decide this
-            if(Window.isCloseRequested()) {
-                game.requestShutdown();
-            }
-            
             // sync to the target framerate
             Display.sync(engineCtx.targetFramerate);
         }

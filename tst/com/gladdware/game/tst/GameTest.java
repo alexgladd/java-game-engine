@@ -24,6 +24,7 @@ import org.lwjgl.opengl.GL11;
 import com.gladdware.game.core.EngineException;
 import com.gladdware.game.core.EngineCore;
 import com.gladdware.game.core.Game;
+import com.gladdware.game.core.Window;
 import com.gladdware.game.log.Log;
 import com.gladdware.game.log.LogLevel;
 import com.gladdware.game.math.Matrix4f;
@@ -75,8 +76,10 @@ public class GameTest extends Game {
      */
     @Override
     protected void onUpdate(float timeDelta) {
-        // TODO Auto-generated method stub
-
+        // check for shutdown
+        if(Window.isCloseRequested()) {
+            requestShutdown();
+        }
     }
 
     /* (non-Javadoc)
@@ -85,7 +88,7 @@ public class GameTest extends Game {
     @Override
     protected void onRender() {
         // clear
-    	GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
         
         // show fps once per second
         long nowNs = Time.getTimeNs();
