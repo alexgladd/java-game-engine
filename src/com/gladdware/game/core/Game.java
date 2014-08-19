@@ -24,6 +24,9 @@ package com.gladdware.game.core;
  */
 public abstract class Game {
     
+    /**
+     * Shutdown flag
+     */
     private Boolean stopRequested;
 
     /**
@@ -33,6 +36,11 @@ public abstract class Game {
         this.stopRequested = false;
     }
     
+    /**
+     * Get the game's shutdown flag
+     *
+     * @return true if the game should be shutdown
+     */
     public boolean shutdownRequested() {
         boolean result;
         
@@ -44,6 +52,9 @@ public abstract class Game {
         return result;
     }
     
+    /**
+     * Request that the game shutdown as soon as possible
+     */
     protected void requestShutdown() {
         // thread-safe modification of the flag
         synchronized(this.stopRequested) {
@@ -51,12 +62,28 @@ public abstract class Game {
         }
     }
     
+    /**
+     * Perform game initialization
+     *
+     * @return true on success
+     */
     protected abstract boolean onInit();
     
+    /**
+     * Perform game cleanup
+     */
     protected abstract void onCleanup();
     
+    /**
+     * Update the game state
+     *
+     * @param deltaMs elapsed time since the last update, in milliseconds
+     */
     protected abstract void onUpdate(float deltaMs);
     
+    /**
+     * Render the game state
+     */
     protected abstract void onRender();
 
 }

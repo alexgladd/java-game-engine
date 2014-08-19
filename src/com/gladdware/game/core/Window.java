@@ -36,6 +36,14 @@ public class Window {
     
     private static final String TAG = "Window";
 
+    /**
+     * Create a display window with the given parameters
+     *
+     * @param width display width
+     * @param height display height
+     * @param title window title
+     * @throws EngineException on failure to initialize or create a display
+     */
     public static void create(int width, int height, String title)
             throws EngineException {
         // invoke lwjgl to setup the display
@@ -52,27 +60,55 @@ public class Window {
         }
     }
     
+    /**
+     * Create a display window with a default title
+     *
+     * @param width display width
+     * @param height display height
+     * @throws EngineException on failure to initialize or create a display
+     */
     public static void create(int width, int height) throws EngineException {
         create(width, height, DEFAULT_TITLE);
     }
     
+    /**
+     * Destroy the display window
+     */
     public static void dispose() {
         Log.d(TAG, "Destroying display");
         Display.destroy();
     }
     
+    /**
+     * Update the display window (effectively swaps the OpenGL buffers)
+     */
     public static void render() {
         Display.update();
     }
     
+    /**
+     * Check whether the close button on the display window was clicked
+     *
+     * @return true if window close is requested
+     */
     public static boolean isCloseRequested() {
         return Display.isCloseRequested();
     }
     
+    /**
+     * Get the width of the display window
+     *
+     * @return the width of the display window
+     */
     public static int getWidth() {
         return Display.getDisplayMode().getWidth();
     }
     
+    /**
+     * Get the height of the display window
+     *
+     * @return the height of the display window
+     */
     public static int getHeight() {
         return Display.getDisplayMode().getHeight();
     }

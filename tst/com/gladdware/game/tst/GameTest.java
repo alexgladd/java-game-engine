@@ -102,7 +102,7 @@ public class GameTest extends Game {
     
     public static void main(String[] args) {
         Log.setLevel(LogLevel.DEBUG);
-        String tag = "GameCoreTestDriver";
+        String tag = "GameTestDriver";
         
         Log.i(tag, "Starting the Gladdware Game Engine test driver");
         

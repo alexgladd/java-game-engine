@@ -39,16 +39,40 @@ public class EngineCore {
     private Game game;
     private EngineContext engineCtx;
 
+    /**
+     * Constructor
+     *
+     * @param game Game implementation
+     * @param ctx engine context
+     */
     public EngineCore(Game game, EngineContext ctx) {
         this.game = game;
         this.engineCtx = ctx;
     }
     
+    /**
+     * Constructor
+     *
+     * @param game Game implementation
+     */
     public EngineCore(Game game) {
         this(game, new EngineContext(Window.DEFAULT_WIDTH,
                 Window.DEFAULT_HEIGHT, DEFAULT_FRAMERATE, Window.DEFAULT_TITLE));
     }
     
+    /**
+     * Main game loop
+     * 
+     * This is the primary control loop for the game. The loop runs one
+     * iteration per frame rendered. The loop will call the
+     * onInput/onUpdate/onRender methods of the game implementation at the
+     * correct times within the loop.
+     * 
+     * The loop will run until the game implementation sets its shutdown flag
+     * (as returned by Game.shutdownRequested()).
+     *
+     * @throws EngineException on an unrecoverable game engine exception
+     */
     public void run() throws EngineException {
         // initialize
         if(!init()) {
@@ -72,6 +96,8 @@ public class EngineCore {
             // start the frame
             Time.startFrame();
             
+            // TODO update inputs
+            
             // update the game state
             game.onUpdate(Time.getDeltaMs());
             
@@ -93,6 +119,11 @@ public class EngineCore {
         cleanup();
     }
     
+    /**
+     * Perform core engine initialization
+     *
+     * @return true on success
+     */
     private boolean init() {
         // de-conflict
         if(Display.isCreated()) {
@@ -116,6 +147,9 @@ public class EngineCore {
         return true;
     }
     
+    /**
+     * Perform core engine cleanup
+     */
     private void cleanup() {
         Log.d(TAG, "Engine cleanup");
         

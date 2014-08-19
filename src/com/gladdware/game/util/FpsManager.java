@@ -33,6 +33,11 @@ public class FpsManager {
     private static float averageFps;
     private static int frameCount;
     
+    /**
+     * Initialize the the framerate manager
+     *
+     * @param targetFps the 
+     */
     public static void init(int targetFps) {
         lastFps = (float)targetFps;
         averageFps = (float)targetFps;
@@ -40,6 +45,12 @@ public class FpsManager {
         lastFpsTimeNs = Time.getTimeNs();
     }
     
+    /**
+     * Signal that a frame has finished updating and rendering
+     * 
+     * The FPS manager uses these signals to maintain a count of frames rendered
+     * per second.
+     */
     public static void finishedFrame() {
         frameCount++;
         
@@ -58,10 +69,20 @@ public class FpsManager {
         }
     }
     
+    /**
+     * Get the current instantaneous FPS calculation
+     *
+     * @return current fps
+     */
     public static float getFps() {
         return lastFps;
     }
     
+    /**
+     * Get the current average FPS calculation
+     *
+     * @return average fps
+     */
     public static float getAverageFps() {
         return averageFps;
     }

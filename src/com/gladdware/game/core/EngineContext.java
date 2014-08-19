@@ -33,6 +33,14 @@ public class EngineContext {
     /** The title of the display window */
     public String screenTitle;
     
+    /**
+     * Constructor
+     *
+     * @param width display width
+     * @param height display height
+     * @param framerate target framerate
+     * @param title display window title
+     */
     public EngineContext(int width, int height, int framerate, String title) {
         this.screenWidth = width;
         this.screenHeight = height;
