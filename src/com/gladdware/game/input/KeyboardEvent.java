@@ -31,12 +31,13 @@ public class KeyboardEvent extends InputEvent {
     /**
      * Constructor
      *
+     * @param timeNs the time the keyboard event occurred in nanoseconds
      * @param state the state of the keyboard event
      * @param code the LWJGL code for the keyboard event
      * @param character the character for the keyboard event
      */
-    public KeyboardEvent(State state, int code, char character) {
-        super(Source.KEYBOARD);
+    public KeyboardEvent(long timeNs, State state, int code, char character) {
+        super(Source.KEYBOARD, timeNs);
         
         this.keyState = state;
         this.keyCode = code;
@@ -68,6 +69,23 @@ public class KeyboardEvent extends InputEvent {
      */
     public char getKeyChar() {
         return this.keyChar;
+    }
+    
+    /* (non-Javadoc)
+     * @see com.gladdware.game.input.InputEvent#toString()
+     */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append(" [");
+        
+        sb.append("code=" + this.keyCode);
+        sb.append(", char=" + this.keyChar);
+        sb.append(", state=" + this.keyState.name());
+        
+        sb.append("]");
+        
+        return sb.toString();
     }
     
     /**

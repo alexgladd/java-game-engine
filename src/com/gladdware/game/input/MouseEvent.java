@@ -24,9 +24,73 @@ package com.gladdware.game.input;
  */
 public class MouseEvent extends InputEvent {
     
-    // TODO
+    /** Mouse button that generated the event */
+    private int button;
+    /** State of the mouse button */
+    private ButtonState buttonState;
+    
+    /** Absolute position of the mouse pointer */
+    private int x, y;
+    /** Change in position of the mouse pointer since the last poll */
+    private int deltaX, deltaY;
+    
+    /** Change in position of the mouse wheel since the last poll */
+    private int deltaWheel;
 
-    public MouseEvent() {
-        super(Source.MOUSE);
+    /**
+     * Constructor
+     *
+     * @param timeNs the time the mouse event occurred in nanoseconds
+     * @param btn the button that caused this event
+     * @param btnState the state of the mouse button
+     * @param x absolute X position of the mouse pointer
+     * @param y absolute Y position of the mouse pointer
+     * @param dx change in X position of the mouse pointer since last event
+     * @param dy change in Y position of the mouse pointer since last event
+     * @param dWheel change in mouse wheel position since last event
+     */
+    public MouseEvent(long timeNs, int btn, ButtonState btnState, int x, int y,
+            int dx, int dy, int dWheel) {
+        super(Source.MOUSE, timeNs);
+        
+        this.button = btn;
+        this.buttonState = btnState;
+        this.x = x;
+        this.y = y;
+        this.deltaX = dx;
+        this.deltaY = dy;
+        this.deltaWheel = dWheel;
+    }
+    
+    // TODO accessors for mouse event members
+    
+    /* (non-Javadoc)
+     * @see com.gladdware.game.input.InputEvent#toString()
+     */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append(" [");
+        
+        sb.append("btn=" + this.button);
+        sb.append(", btnState=" + this.buttonState.name());
+        sb.append(", x=" + this.x);
+        sb.append(", y=" + this.y);
+        sb.append(", dx=" + this.deltaX);
+        sb.append(", dy=" + this.deltaY);
+        sb.append(", dwheel=" + this.deltaWheel);
+        
+        sb.append("]");
+        
+        return sb.toString();
+    }
+    
+    /**
+     * Mouse button state enumeration
+     */
+    public enum ButtonState {
+        NO_BUTTON,
+        UP,
+        DOWN;
     }
 }

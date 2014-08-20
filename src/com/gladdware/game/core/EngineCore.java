@@ -21,6 +21,7 @@ package com.gladdware.game.core;
 
 import org.lwjgl.opengl.Display;
 
+import com.gladdware.game.input.Input;
 import com.gladdware.game.log.Log;
 import com.gladdware.game.util.FpsManager;
 import com.gladdware.game.util.Time;
@@ -97,6 +98,7 @@ public class EngineCore {
             Time.startFrame();
             
             // TODO update inputs
+            Input.collectInput();
             
             // update the game state
             game.onUpdate(Time.getDeltaMs());
@@ -133,12 +135,13 @@ public class EngineCore {
         
         Log.d(TAG, "Engine initialize");
         
-        // setup the window
         try {
+            // setup the window
             Window.create(engineCtx.screenWidth, engineCtx.screenHeight,
                     engineCtx.screenTitle);
             
-         // TODO init input
+            // setup input
+            Input.init();
         } catch(EngineException e) {
             Log.e(TAG, "Failed to initialize engine: " + e.getMessage(), e);
             return false;
@@ -153,7 +156,8 @@ public class EngineCore {
     private void cleanup() {
         Log.d(TAG, "Engine cleanup");
         
-        // TODO de-init input
+        // teardown input
+        Input.dispose();
         
         // teardown window
         Window.dispose();

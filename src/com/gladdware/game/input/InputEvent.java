@@ -23,16 +23,20 @@ package com.gladdware.game.input;
  * Abstract game input event
  */
 public abstract class InputEvent {
-    
+    /** Source of the input event */
     private Source source;
+    
+    /** Time the input event occurred, in nanoseconds */
+    private long evtTimeNs;
     
     /**
      * Constructor
      *
      * @param src the source of this input
      */
-    public InputEvent(Source src) {
+    public InputEvent(Source src, long evtTimeNs) {
         this.source = src;
+        this.evtTimeNs = evtTimeNs;
     }
     
     /**
@@ -42,6 +46,39 @@ public abstract class InputEvent {
      */
     public Source getSource() {
         return this.source;
+    }
+    
+    /**
+     * Get the time the input event occurred, in nanoseconds
+     * 
+     * Note that the only value of event times is in comparing times of events
+     * relative to one another, and not absolute time.
+     *
+     * @return input event time in nanoseconds
+     */
+    public long getEventTimeNs() {
+        return this.evtTimeNs;
+    }
+    
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        switch(this.source) {
+        case KEYBOARD:
+            sb.append("KEYBOARD EVT");
+            break;
+            
+        case MOUSE:
+            sb.append("MOUSE EVT");
+            break;
+        }
+        
+        sb.append(" @ " + this.evtTimeNs);
+        
+        return sb.toString();
     }
 
     /**
