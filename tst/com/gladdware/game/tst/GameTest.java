@@ -19,16 +19,18 @@
 
 package com.gladdware.game.tst;
 
+import java.util.List;
+
 import org.lwjgl.opengl.GL11;
 
 import com.gladdware.game.core.EngineException;
 import com.gladdware.game.core.EngineCore;
 import com.gladdware.game.core.Game;
+import com.gladdware.game.core.Input;
 import com.gladdware.game.core.Window;
+import com.gladdware.game.input.InputEvent;
 import com.gladdware.game.log.Log;
 import com.gladdware.game.log.LogLevel;
-import com.gladdware.game.math.Matrix4f;
-import com.gladdware.game.math.Vector3f;
 import com.gladdware.game.util.FpsManager;
 import com.gladdware.game.util.Time;
 
@@ -76,6 +78,19 @@ public class GameTest extends Game {
      */
     @Override
     protected void onUpdate(float timeDelta) {
+        // pull inputs
+        List<InputEvent> inputs = Input.getInputs();
+        
+        if(!inputs.isEmpty()) {
+            Log.d(TAG, String.format("Time delta: %1$.6f", timeDelta));
+            Log.d(TAG, "Collected " + inputs.size() + " input events");
+            
+            for(int i = 0; i < inputs.size(); i++) {
+                InputEvent ie = inputs.get(i);
+                Log.d(TAG, ie.toString());
+            }
+        }
+        
         // check for shutdown
         if(Window.isCloseRequested()) {
             requestShutdown();

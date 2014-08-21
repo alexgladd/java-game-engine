@@ -62,7 +62,87 @@ public class MouseEvent extends InputEvent {
         this.deltaWheel = dWheel;
     }
     
-    // TODO accessors for mouse event members
+    /**
+     * Get the mouse button for this event.
+     * 
+     * A button value of -1 indicates that the event doesn't correspond to a
+     * button click.
+     *
+     * @return the mouse button
+     */
+    public int getButton() {
+        return this.button;
+    }
+    
+    /**
+     * Get the state of the mouse button event.
+     * 
+     * The state NO_BUTTON indicates that the event doesn't correspond to a
+     * button click.
+     *
+     * @return the mouse button state
+     */
+    public ButtonState getButtonState() {
+        return this.buttonState;
+    }
+    
+    /**
+     * Get the absolute X position of the mouse pointer for this event.
+     * 
+     * Note that this value will be clamped to the minimum and maximum
+     * X position values of the display window.
+     *
+     * @return absolute X position of this mouse event
+     */
+    public int getX() {
+        return this.x;
+    }
+    
+    /**
+     * Get the absolute Y position of the mouse pointer for this event.
+     * 
+     * Note that this value will be clamped to the minimum and maximum
+     * Y position values of the display window.
+     *
+     * @return absolute Y position of this mouse event
+     */
+    public int getY() {
+        return this.y;
+    }
+    
+    /**
+     * Get the change in the X position of the mouse pointer for this event.
+     * 
+     * This will be the change in the X position since the last mouse event.
+     *
+     * @return the change in X position for this mouse event
+     */
+    public int getDeltaX() {
+        return this.deltaX;
+    }
+    
+    /**
+     * Get the change in the Y position of the mouse pointer for this event.
+     * 
+     * This will be the change in the Y position since the last mouse event.
+     *
+     * @return the change in Y position for this mouse event
+     */
+    public int getDeltaY() {
+        return this.deltaY;
+    }
+    
+    /**
+     * Get the change in mouse wheel position for this event.
+     * 
+     * This will be the change in the mouse wheel position since the last mouse
+     * event.
+     *
+     * @return the change in mouse wheel position for this mouse event
+     */
+    public int getDeltaWheel() {
+        return this.deltaWheel;
+    }
     
     /* (non-Javadoc)
      * @see com.gladdware.game.input.InputEvent#toString()

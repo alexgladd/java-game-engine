@@ -24,8 +24,11 @@ package com.gladdware.game.input;
  */
 public class KeyboardEvent extends InputEvent {
     
+    /** State of the key */
     private State keyState;
+    /** LWJGL key code */
     private int keyCode;
+    /** Key character, if applicable */
     private char keyChar;
 
     /**

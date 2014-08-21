@@ -21,7 +21,6 @@ package com.gladdware.game.core;
 
 import org.lwjgl.opengl.Display;
 
-import com.gladdware.game.input.Input;
 import com.gladdware.game.log.Log;
 import com.gladdware.game.util.FpsManager;
 import com.gladdware.game.util.Time;
@@ -97,7 +96,7 @@ public class EngineCore {
             // start the frame
             Time.startFrame();
             
-            // TODO update inputs
+            // update inputs
             Input.collectInput();
             
             // update the game state

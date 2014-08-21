@@ -22,7 +22,7 @@ package com.gladdware.game.input;
 /**
  * Abstract game input event
  */
-public abstract class InputEvent {
+public abstract class InputEvent implements Comparable<InputEvent> {
     /** Source of the input event */
     private Source source;
     
@@ -58,6 +58,23 @@ public abstract class InputEvent {
      */
     public long getEventTimeNs() {
         return this.evtTimeNs;
+    }
+    
+    /* (non-Javadoc)
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    public int compareTo(InputEvent other) {
+        if(other == null) {
+            throw new NullPointerException("Other InputEvent must not be null");
+        }
+        
+        if(this.getEventTimeNs() < other.getEventTimeNs()) {
+            return -1;
+        } else if(this.getEventTimeNs() == other.getEventTimeNs()) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
     
     /* (non-Javadoc)
