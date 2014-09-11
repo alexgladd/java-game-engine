@@ -14,8 +14,6 @@ Other helpful stuff:
 
 ## License
 
-Copyright 2014 Alex Gladd
-
 This program is licensed under the LGPLv3; see the [GPL](LICENSE) and the
 [LGPL supplement](LICENSE.LESSER).
 
