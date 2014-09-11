@@ -16,20 +16,24 @@ Other helpful stuff:
 
 Copyright 2014 Alex Gladd
 
-This program is licensed under the GPLv3
+This program is licensed under the LGPLv3; see [the license](LICENSE) and its
+[modifications](LICENSE.LESSER).
 
-![GPL3 Logo](http://www.gnu.org/graphics/gplv3-127x51.png)
+***TL;DR***: You may use this engine in your game regardless of your license
+(including proprietary ones). Any modification or derivative work of the engine
+itself must be made publicly available under the LGPL version 3 or later.
+
+![LGPL3 Logo](http://www.gnu.org/graphics/lgplv3-147x51.png)
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
+it under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU General Public License
+You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
