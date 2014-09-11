@@ -16,8 +16,8 @@ Other helpful stuff:
 
 Copyright 2014 Alex Gladd
 
-This program is licensed under the LGPLv3; see [the license](LICENSE) and its
-[modifications](LICENSE.LESSER).
+This program is licensed under the LGPLv3; see the [GPL](LICENSE) and the
+[LGPL supplement](LICENSE.LESSER).
 
 ***TL;DR***: You may use this engine in your game regardless of your license
 (including proprietary ones). Any modification or derivative work of the engine
