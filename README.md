@@ -21,7 +21,8 @@ This program is licensed under the LGPLv3; see the [GPL](LICENSE) and the
 
 ***TL;DR***: You may use this engine in your game regardless of your license
 (including proprietary ones). Any modification or derivative work of the engine
-itself must be made publicly available under the LGPL version 3 or later.
+itself must be made publicly available (including source code) under the LGPL
+version 3 or later.
 
 ![LGPL3 Logo](http://www.gnu.org/graphics/lgplv3-147x51.png)
 
